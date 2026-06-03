@@ -30,7 +30,7 @@ export default function App() {
       <Route element={<SiteLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/products/:slug" element={<ProductDetail />} />
-        <Route path="/terms" element={<Terms />} />
+        <Route path="/tos" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />

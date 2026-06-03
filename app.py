@@ -78,6 +78,18 @@ def tos():
 def privacy():
     return render_template('privacy.html')
 
+@app.route('/callback')
+def callback():
+    """OAuth callback handler placeholder (coordinated with TikTok Integrator)"""
+    code = request.args.get('code')
+    state = request.args.get('state')
+    return jsonify({
+        "status": "success",
+        "message": "Callback received (placeholder)",
+        "code": code,
+        "state": state
+    })
+
 # --- TikTok OAuth Routes ---
 
 @app.route('/tiktok/login')
@@ -131,4 +143,4 @@ def tiktok_verify():
     return "tiktok-developers-site-verification=i0OVhokgo6gujjlWDTOlLGZ5PtRNGRsA", 200, {'Content-Type': 'text/plain'}
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5001)), debug=True)
+    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=True)
