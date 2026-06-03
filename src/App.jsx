@@ -9,10 +9,12 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import OrderTracking from './pages/OrderTracking';
 import LandingPage from './pages/LandingPage';
+import Links from './pages/Links';
 import NotFound from './pages/NotFound';
 export default function App() {
   return (
     <Routes>
+      <Route path="/links" element={<Links />} />
       <Route element={<SiteLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/products/:slug" element={<ProductDetail />} />
