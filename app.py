@@ -78,25 +78,9 @@ def tos():
 def privacy():
     return render_template('privacy.html')
 
-# --- TikTok OAuth Routes ---
-
-@app.route('/tiktok/login')
-def tiktok_login():
-    csrf_state = secrets.token_urlsafe(16)
-    auth_url = "https://www.tiktok.com/v2/auth/authorize/"
-    scopes = "user.info.basic,video.upload,video.publish"
-    params = {
-        "client_key": CLIENT_KEY,
-        "scope": scopes,
-        "response_type": "code",
-        "redirect_uri": REDIRECT_URI,
-        "state": csrf_state
-    }
-    auth_full_url = f"{auth_url}?{urlencode(params)}"
-    return redirect(auth_full_url)
-
-@app.route('/tiktok/callback')
-def tiktok_callback():
+@app.route('/callback')
+def callback():
+    """OAuth callback handler for TikTok"""
     code = request.args.get('code')
     if not code:
         return "Error: No code received", 400
@@ -121,6 +105,23 @@ def tiktok_callback():
     else:
         return f"<h1>Error</h1><p>{response.text}</p>", response.status_code
 
+# --- TikTok OAuth Routes ---
+
+@app.route('/tiktok/login')
+def tiktok_login():
+    csrf_state = secrets.token_urlsafe(16)
+    auth_url = "https://www.tiktok.com/v2/auth/authorize/"
+    scopes = "user.info.basic,video.upload,video.publish"
+    params = {
+        "client_key": CLIENT_KEY,
+        "scope": scopes,
+        "response_type": "code",
+        "redirect_uri": REDIRECT_URI,
+        "state": csrf_state
+    }
+    auth_full_url = f"{auth_url}?{urlencode(params)}"
+    return redirect(auth_full_url)
+
 # --- TikTok Verification Routes ---
 
 @app.route('/tiktok-verify.txt')
@@ -131,4 +132,4 @@ def tiktok_verify():
     return "tiktok-developers-site-verification=i0OVhokgo6gujjlWDTOlLGZ5PtRNGRsA", 200, {'Content-Type': 'text/plain'}
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5001)), debug=True)
+    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=True)
