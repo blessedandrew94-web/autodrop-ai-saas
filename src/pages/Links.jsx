@@ -61,8 +61,20 @@ export default function Links() {
         </Link>
       </div>
 
-      {/* Other Validated Products List */}
+      {/* Main Links Container */}
       <div className="w-full max-w-md space-y-3">
+        {/* TikTok Integration: Login with TikTok (Developer Option) */}
+        <a
+          href="/tiktok/login"
+          onClick={() => trackClick('admin', 'tiktok-login')}
+          className="flex items-center justify-center gap-3 bg-black text-white py-4 px-6 rounded-xl text-center font-bold text-sm transition-all hover:bg-gray-900 shadow-lg border-2 border-white/10 mb-6"
+        >
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.6-4.13-1.47-.13-.08-.26-.17-.38-.26v7.02c.01 2.85-1.56 5.73-4.06 7.2-2.73 1.61-6.26 1.24-8.48-1.1-1.91-2.01-2.36-4.96-1.19-7.39 1.15-2.4 4.08-3.87 6.74-3.35v4.09c-.86-.33-1.87-.21-2.62.36-.88.65-1.23 1.75-.97 2.76.3 1.25 1.65 2.04 2.89 1.8 1.39-.23 2.36-1.51 2.35-2.93V.02z"/>
+          </svg>
+          Log in with TikTok
+        </a>
+
         {products.slice(1).map(product => (
           <Link
             key={product.id}
