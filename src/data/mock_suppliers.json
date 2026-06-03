@@ -1,0 +1,82 @@
+[
+  {
+    "product_name": "Portable Electric Cleaning Brush",
+    "supplier": "AliExpress Global Store",
+    "price": 2.20,
+    "inventory": 150,
+    "shipping_time_days": 14,
+    "rating": 4.8
+  },
+  {
+    "product_name": "Portable Electric Cleaning Brush",
+    "supplier": "CJ Dropshipping Official",
+    "price": 2.45,
+    "inventory": 500,
+    "shipping_time_days": 10,
+    "rating": 4.9
+  },
+  {
+    "product_name": "3-in-1 Magnetic Wireless Charging Station",
+    "supplier": "AliExpress Global Store",
+    "price": 7.50,
+    "inventory": 80,
+    "shipping_time_days": 12,
+    "rating": 4.5
+  },
+  {
+    "product_name": "3-in-1 Magnetic Wireless Charging Station",
+    "supplier": "TechGear Wholesale",
+    "price": 8.20,
+    "inventory": 200,
+    "shipping_time_days": 7,
+    "rating": 4.7
+  },
+  {
+    "product_name": "Sunset Projection Lamp",
+    "supplier": "AliExpress Home Decor",
+    "price": 1.50,
+    "inventory": 300,
+    "shipping_time_days": 15,
+    "rating": 4.6
+  },
+  {
+    "product_name": "Sunset Projection Lamp",
+    "supplier": "BrightLite Suppliers",
+    "price": 1.20,
+    "inventory": 1000,
+    "shipping_time_days": 12,
+    "rating": 4.8
+  },
+  {
+    "product_name": "Portable Rechargeable Juice Blender",
+    "supplier": "AliExpress Gadget Hub",
+    "price": 3.80,
+    "inventory": 45,
+    "shipping_time_days": 14,
+    "rating": 4.4
+  },
+  {
+    "product_name": "Portable Rechargeable Juice Blender",
+    "supplier": "KitchenCore Pro",
+    "price": 4.10,
+    "inventory": 150,
+    "shipping_time_days": 8,
+    "rating": 4.9
+  },
+  {
+    "product_name": "Ultra-Quiet Smart Pet Water Fountain",
+    "supplier": "AliExpress Pet Paradise",
+    "price": 1.80,
+    "inventory": 60,
+    "shipping_time_days": 18,
+    "rating": 4.3
+  },
+  {
+    "product_name": "Ultra-Quiet Smart Pet Water Fountain",
+    "supplier": "PawSmart Logistics",
+    "price": 2.10,
+    "inventory": 300,
+    "shipping_time_days": 9,
+    "rating": 4.7
+  }
+]
