@@ -80,35 +80,7 @@ def privacy():
 
 @app.route('/callback')
 def callback():
-    """OAuth callback handler placeholder (coordinated with TikTok Integrator)"""
-    code = request.args.get('code')
-    state = request.args.get('state')
-    return jsonify({
-        "status": "success",
-        "message": "Callback received (placeholder)",
-        "code": code,
-        "state": state
-    })
-
-# --- TikTok OAuth Routes ---
-
-@app.route('/tiktok/login')
-def tiktok_login():
-    csrf_state = secrets.token_urlsafe(16)
-    auth_url = "https://www.tiktok.com/v2/auth/authorize/"
-    scopes = "user.info.basic,video.upload,video.publish"
-    params = {
-        "client_key": CLIENT_KEY,
-        "scope": scopes,
-        "response_type": "code",
-        "redirect_uri": REDIRECT_URI,
-        "state": csrf_state
-    }
-    auth_full_url = f"{auth_url}?{urlencode(params)}"
-    return redirect(auth_full_url)
-
-@app.route('/tiktok/callback')
-def tiktok_callback():
+    """OAuth callback handler for TikTok"""
     code = request.args.get('code')
     if not code:
         return "Error: No code received", 400
@@ -132,6 +104,23 @@ def tiktok_callback():
         return "<h1>Success!</h1><p>TikTok tokens acquired and saved to database.</p>", 200
     else:
         return f"<h1>Error</h1><p>{response.text}</p>", response.status_code
+
+# --- TikTok OAuth Routes ---
+
+@app.route('/tiktok/login')
+def tiktok_login():
+    csrf_state = secrets.token_urlsafe(16)
+    auth_url = "https://www.tiktok.com/v2/auth/authorize/"
+    scopes = "user.info.basic,video.upload,video.publish"
+    params = {
+        "client_key": CLIENT_KEY,
+        "scope": scopes,
+        "response_type": "code",
+        "redirect_uri": REDIRECT_URI,
+        "state": csrf_state
+    }
+    auth_full_url = f"{auth_url}?{urlencode(params)}"
+    return redirect(auth_full_url)
 
 # --- TikTok Verification Routes ---
 
